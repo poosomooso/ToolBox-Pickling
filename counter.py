@@ -35,17 +35,19 @@ def update_counter(file_name, reset=False):
             num = load(f)
             try:
                     newNum = int(num)+1
+                    f.seek(0,0)
+                    dump(str(newNum),f)
+                    return int(newNum)
+
             except ValueError:
+                    #if num is not a number
                     f.close()
-                    break #create a new file
-            f.seek(0,0)
-            load(f,str(newNum))
-            return newNum
 
 
-    f = open(file_name. 'w')
-    dump(f, '1')
-    return '1'
+
+    f = open(file_name, 'w')
+    dump('1',f)
+    return 1
 
 
 
